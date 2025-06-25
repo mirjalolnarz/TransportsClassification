@@ -1,11 +1,12 @@
 import streamlit as st
 from fastai.vision.all import *
 import pathlib
+import platform
 import plotly.express as px
 
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
-
+# Platformaga qarab yo‘l turini avtomatik moslashtirish
+if platform.system() == 'Windows':
+    pathlib.PosixPath = pathlib.WindowsPath
 
 #title of the app
 st.title("Image Classification with FastAI")
